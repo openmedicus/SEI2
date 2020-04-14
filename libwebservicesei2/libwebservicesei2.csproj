@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenMedicus.Webservice</RootNamespace>
+    <AssemblyName>OpenMedicus.Webservice.SEI2</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SEI2.cs" />
+    <Compile Include="SEI2Helper.cs" />
+    <Compile Include="SEI2Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="certificates/IDWS_WSP_Preprod.cer">
+      <LogicalName>IDWS_WSP_Preprod</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/IDWS_WSP_Prod.cer">
+      <LogicalName>IDWS_WSP_Prod</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/IDWS_WSP_Test.cer">
+      <LogicalName>IDWS_WSP_Test</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/STS.cer">
+      <LogicalName>STS</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/TRUST2048_Systemtest_VII_Primary_CA.cer">
+      <LogicalName>TRUST2048_Systemtest_VII_Primary_CA</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/TRUST2048_Systemtest_XIX_CA.cer">
+      <LogicalName>TRUST2048_Systemtest_XIX_CA</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/TRUST2408_Systemtest_XXII_CA.cer">
+      <LogicalName>TRUST2408_Systemtest_XXII_CA</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/Charlotte_Henriksen_RID_18756718.p12">
+      <LogicalName>Charlotte_Henriksen_RID_18756718</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/XMedicus_Systems_ApS_IDWS_Test.p12">
+      <LogicalName>XMedicus_Systems_ApS_IDWS_Test</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libutilhelper\libutilhelper.csproj">
+      <Project>{9e8ee3e6-be6b-468f-b83a-756aedef1a75}</Project>
+      <Name>libutilhelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>

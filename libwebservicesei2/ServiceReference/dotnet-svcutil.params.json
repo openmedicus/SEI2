@@ -1,0 +1,12 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "2.0.1",
+  "options": {
+    "inputs": [
+      "https://seiidws.test.sundhedsdata.dk/SEI2Report.svc?singleWsdl"
+    ],
+    "outputFile": "Reference.cs",
+    "targetFramework": "netstandard2.0",
+    "typeReuseMode": "All"
+  }
+}
