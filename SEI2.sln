@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEI2", "SEI2\SEI2.csproj", "{4FAEB720-ADAC-4F7C-A456-3A6A47001252}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libwebservicesei2", "libwebservicesei2\libwebservicesei2.csproj", "{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}"
@@ -16,13 +19,19 @@ Global
 		{4FAEB720-ADAC-4F7C-A456-3A6A47001252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FAEB720-ADAC-4F7C-A456-3A6A47001252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FAEB720-ADAC-4F7C-A456-3A6A47001252}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}.Release|Any CPU.ActiveCfg = Linux|Any CPU
-		{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}.Release|Any CPU.Build.0 = Linux|Any CPU
 		{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E8EE3E6-BE6B-468F-B83A-756AEDEF1A75}.Release|Any CPU.ActiveCfg = Windows|Any CPU
-		{9E8EE3E6-BE6B-468F-B83A-756AEDEF1A75}.Release|Any CPU.Build.0 = Windows|Any CPU
+		{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE21081B-6BD1-45C9-9892-2E75DA4FD6F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E8EE3E6-BE6B-468F-B83A-756AEDEF1A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E8EE3E6-BE6B-468F-B83A-756AEDEF1A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8EE3E6-BE6B-468F-B83A-756AEDEF1A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8EE3E6-BE6B-468F-B83A-756AEDEF1A75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {813A7C81-4750-4BFD-BD30-9D88D9C8CCE8}
 	EndGlobalSection
 EndGlobal

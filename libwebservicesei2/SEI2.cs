@@ -85,12 +85,28 @@ namespace OpenMedicus.WebService.SEI2
 						break;
 					case Charlotte_Henriksen_RID_18756718:
 					case XMedicus_Systems_ApS_IDWS_Test:
-						cert = CertificateUtils.Load (stream, password);
-						break;
+						//cert = CertificateUtils.Load (stream, password);
+						//break;
 					default:
-						cert = new X509Certificate2 (ReadFully (stream), password);
+						cert = new X509Certificate2 (ReadFully (stream), password, X509KeyStorageFlags.Exportable);
 						break;
 				}
+			}
+
+			if (cert.PrivateKey is RSACryptoServiceProvider privKey)
+			{
+				var exported = privKey.ToXmlString(true);
+
+				var cspParams = new CspParameters
+				{
+					ProviderType = 24,
+					ProviderName = "Microsoft Enhanced RSA and AES Cryptographic Provider"
+				};
+
+				var newPrivKey = new RSACryptoServiceProvider(cspParams);
+				newPrivKey.FromXmlString(exported);
+
+				cert.PrivateKey = privKey;
 			}
 
 			return cert;

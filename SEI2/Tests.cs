@@ -25,10 +25,10 @@ namespace SEI2
 
       var clientSettings = new OioIdwsClientSettings
       {
-        ClientCertificate = SEI2Certificates.GetCertificate(SEI2Certificates.Charlotte_Henriksen_RID_18756718),
+        ClientCertificate = SEI2Certificates.GetCertificate(SEI2Certificates.XMedicus_Systems_ApS_IDWS_Test),
         SecurityTokenService = stsSettings,
-        AudienceUri = new Uri("https://saml.nnit001.dmz.inttest"),
-        AccessTokenIssuerEndpoint = new Uri("https://seiidws.test.sundhedsdatastyrelsen.dk")
+        AudienceUri = new Uri("https://wsc.test.xmedicus.com"),
+        AccessTokenIssuerEndpoint = new Uri("https://seiidws.preprod.sundhedsdatastyrelsen.dk"),
       };
 
       var client = new OioIdwsClient(clientSettings);
