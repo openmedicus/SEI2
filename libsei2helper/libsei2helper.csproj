@@ -12,7 +12,6 @@
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
-<<<<<<< HEAD
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
@@ -31,16 +30,6 @@
         <DefineConstants>TRACE</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
-=======
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|AnyCPU' ">
-      <OutputPath>bin\Linux\</OutputPath>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'WIndows|AnyCPU' ">
-      <OutputPath>bin\WIndows\</OutputPath>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'macOS|AnyCPU' ">
-      <OutputPath>bin\macOS\</OutputPath>
->>>>>>> f75ffd7ecab1c6be3c504745baf28f0dd344992c
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
@@ -70,5 +59,4 @@
     <Target Name="AfterBuild">
     </Target>
     -->
-
 </Project>
