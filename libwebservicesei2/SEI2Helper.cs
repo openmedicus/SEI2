@@ -2,15 +2,17 @@
 using System.IO;
 using System.IdentityModel.Tokens;
 using System.Runtime.Serialization;
+using System.ServiceModel;
 using System.Text;
 using System.Xml;
-using Dynamics.AX.Application;
+using Digst.OioIdws.OioWsTrust;
+using OpenMedicus.WebService.SEI2ReportProxy;
 
-namespace OpenMedicus.WebService.SEI2
+namespace tempuri.org
  {
     public class SEI2Helper
     {
-        public static string Submit(byte[] fileBytes, string fileName, SecurityToken employeeToken)
+        public static string Submit(object contract, string tmpName, SecurityToken employeeToken)
         {
             string response = string.Empty;
             Func<object, string, string> formatOutPut = (responseObject, message) =>
@@ -23,7 +25,7 @@ namespace OpenMedicus.WebService.SEI2
             try
             {
                 Func<ISEI2Report, object, Func< object, string, string>, string > invokeService = null;
-                string tmpName = Path.GetFileNameWithoutExtension(fileName).ToLower();
+
                 if (tmpName.Contains("report"))
                 {
                     invokeService = (ISEI2Report client, object _contract, Func<object, string, string> output) =>
@@ -73,23 +75,20 @@ namespace OpenMedicus.WebService.SEI2
                     };
                 }
 
-                var contract = Deserialize(fileBytes);
+                //var contract = Deserialize(fileBytes);
                 if (contract != null)
                 {
                     if (invokeService == null)
                         throw new ApplicationException("Could not generate delegate to invoke service.");
-                    /*IStsTokenService stsTokenService = new StsTokenServiceCache(TokenServiceConfigurationFactory.CreateConfiguration());
+                    
+                    //IStsTokenService stsTokenService = new StsTokenServiceCache(TokenServiceConfigurationFactory.CreateConfiguration());
+                    //SecurityToken securityToken = employeeToken != null ? stsTokenService.GetTokenWithBootstrapToken(employeeToken) : stsTokenService.GetToken();
 
-                    SecurityToken securityToken = employeeToken != null
-                        ? stsTokenService.GetTokenWithBootstrapToken(employeeToken)
-                        : stsTokenService.GetToken();
-
-                    using (var client = new SEI2ReportClient("SoapBinding_ISEI2Report"))
+                    using (var client = new SEI2Service("https://seiidws.test.sundhedsdata.dk/SEI2Report.svc"))
                     {
-                        var channelWithIssuedToken = client.ChannelFactory.CreateChannelWithIssuedToken(securityToken);
+                        var channelWithIssuedToken = client.ChannelFactory.CreateChannelWithIssuedToken(employeeToken);
                         response = invokeService.Invoke(channelWithIssuedToken, contract, formatOutPut);
                     }
-                    */
                 }
             }
             catch (Exception ex)

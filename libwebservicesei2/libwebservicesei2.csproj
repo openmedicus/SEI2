@@ -36,7 +36,28 @@
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Digst.OioIdws.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Digst.OioIdws.Rest.Client.3.0.0\lib\net45\Digst.OioIdws.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Digst.OioIdws.OioWsTrust, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Digst.OioIdws.Rest.Client.3.0.0\lib\net45\Digst.OioIdws.OioWsTrust.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Digst.OioIdws.Rest.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Digst.OioIdws.Rest.Client.3.0.0\lib\net45\Digst.OioIdws.Rest.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Digst.OioIdws.Rest.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Digst.OioIdws.Rest.Client.3.0.0\lib\net45\Digst.OioIdws.Rest.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.IdentityModel" />
@@ -48,7 +69,7 @@
   <ItemGroup>
     <Compile Include="SEI2.cs" />
     <Compile Include="SEI2Helper.cs" />
-    <Compile Include="SEI2Service.cs" />
+    <Compile Include="ServiceReference\Reference.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="certificates/IDWS_WSP_Preprod.cer">
@@ -93,6 +114,9 @@
       <Project>{9e8ee3e6-be6b-468f-b83a-756aedef1a75}</Project>
       <Name>libutilhelper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

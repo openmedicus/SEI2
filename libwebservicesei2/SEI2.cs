@@ -8,17 +8,14 @@ using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 //using System.Xml.Linq;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-
-using Dynamics.AX.Application;
-
-using Org.BouncyCastle.OpenSsl;
-
+using OpenMedicus.WebService.SEI2ReportProxy;
 using static System.String;
 
-namespace OpenMedicus.WebService.SEI2
+namespace tempuri.org
 {
 	public static class SEI2Certificates
 	{
@@ -131,17 +128,12 @@ namespace OpenMedicus.WebService.SEI2
 	public class SEI2Service : SEI2ReportClient
 	{
 		//Specify the binding to be used for the client.
-		static WSHttpBinding binding = new WSHttpBinding (SecurityMode.Transport);
-
+		private static WSHttpBinding binding = new WSHttpBinding (SecurityMode.TransportWithMessageCredential);
+		
 		static string LogPath;
 
 		SimpleEndpointBehavior behavior = new SimpleEndpointBehavior ();
-
-		SEI2Service (EndpointAddress endpoint) : base (binding, endpoint)
-		{
-//			address = endpoint;
-		}
-
+		
 		public SEI2Service (string url, string logPath = null) : base (binding, new EndpointAddress (url))
 		{
 			Endpoint.EndpointBehaviors.Add (behavior);

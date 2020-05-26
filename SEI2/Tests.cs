@@ -1,9 +1,13 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Security.Cryptography;
+using System.Xml.Serialization;
 using Digst.OioIdws.OioWsTrust.Utils;
 using Digst.OioIdws.Rest.Client;
 using NUnit.Framework;
-using OpenMedicus.WebService.SEI2;
+using OpenMedicus.WebService.SEI2ReportProxy;
+using tempuri.org;
 
 namespace SEI2
 {
@@ -36,7 +40,29 @@ namespace SEI2
 
       var token = client.GetSecurityToken();
 
-      Assert.True(!string.IsNullOrWhiteSpace(token.Id));
+      var abort = new SEI2SchemaAbortionContract();
+      abort.schemaCreatedDate = DateTime.Now;
+      abort.schemaUserGroupId = "GRP-0000117";
+      abort.city = "København";
+      abort.country = "5100";
+      abort.firstName = "Nancy";
+      abort.gender = SEI2Gender.Female;
+      abort.municipalityCode = "147";
+      abort.paymentCode = SEI2PaymentCode.PaidByCounty;
+      abort.noReference = NoYes.No;
+      abort.referenceDate = DateTime.Now;
+      abort.sORCode = "223423423423";
+      abort.schemaPersonCivilRegistrationIdentifier = "121212-1212";
+      abort.streetName = "Test";
+      abort.streetNum = "246";
+      abort.surName = "Berggren";
+      abort.zipCode = "2860";
+      
+      var res = SEI2Helper.Submit(abort, "report", token);
+
+      Console.WriteLine(res);
+      
+      Assert.True(res != null);
     }
   }
 }
