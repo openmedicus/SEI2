@@ -31,6 +31,9 @@ namespace OpenMedicus.WebService.SEI2
 		public const string TRUST2408_Systemtest_XXII_CA = "TRUST2408_Systemtest_XXII_CA";
 
 		public const string Charlotte_Henriksen_RID_18756718 = "Charlotte_Henriksen_RID_18756718";
+
+		public const string SEI2_IDWS_CLIENT = "SEI2_IDWS_CLIENT";
+		public const string seiidws_testclient_sundhedsdata_dk = "seiidws_testclient_sundhedsdata_dk";
 		
 		public const string XMedicus_Systems_ApS_IDWS_Test = "XMedicus_Systems_ApS_IDWS_Test";
 
@@ -82,6 +85,10 @@ namespace OpenMedicus.WebService.SEI2
 						{
 							cert = new X509Certificate2(GetBytesFromPEM (reader.ReadToEnd ()));
 						}
+						break;
+					case SEI2_IDWS_CLIENT:
+						password = "tHX4MbreM7qWWAXY";
+						cert = new X509Certificate2 (ReadFully (stream), password, X509KeyStorageFlags.Exportable);
 						break;
 					case Charlotte_Henriksen_RID_18756718:
 					case XMedicus_Systems_ApS_IDWS_Test:

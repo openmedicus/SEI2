@@ -78,6 +78,12 @@
     <EmbeddedResource Include="certificates/XMedicus_Systems_ApS_IDWS_Test.p12">
       <LogicalName>XMedicus_Systems_ApS_IDWS_Test</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="certificates/SEI2_IDWS_CLIENT.p12">
+      <LogicalName>SEI2_IDWS_CLIENT</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="certificates/seiidws.testclient.sundhedsdata.dk.pfx">
+      <LogicalName>seiidws_testclient_sundhedsdata_dk</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

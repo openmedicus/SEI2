@@ -23,12 +23,13 @@ namespace SEI2
         TokenLifeTime = TimeSpan.FromDays(5.0),
       };
 
+      var certificate = SEI2Certificates.GetCertificate(SEI2Certificates.XMedicus_Systems_ApS_IDWS_Test);
       var clientSettings = new OioIdwsClientSettings
       {
-        ClientCertificate = SEI2Certificates.GetCertificate(SEI2Certificates.XMedicus_Systems_ApS_IDWS_Test),
+        ClientCertificate = certificate,
         SecurityTokenService = stsSettings,
-        AudienceUri = new Uri("https://wsc.test.xmedicus.com"),
-        AccessTokenIssuerEndpoint = new Uri("https://seiidws.preprod.sundhedsdatastyrelsen.dk"),
+        AudienceUri = new Uri("https://wsp.oioidws-net.dk"), //"https://wsc.test.xmedicus.com"),
+        AccessTokenIssuerEndpoint = new Uri("https://seiidws.test.sundhedsdatastyrelsen.dk"),
       };
 
       var client = new OioIdwsClient(clientSettings);
